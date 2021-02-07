@@ -2,7 +2,7 @@
 // Stores user commands (accessible via trigger word set in config.js)
 const config = require("./config");
 exports.categories = {
-    "meta": {
+    "Cơ bản": {
         "display_name": "Meta",
         "description": "Commands related to the bot itself",
         "commands": {
@@ -216,7 +216,7 @@ exports.categories = {
             },
         }
     },
-    "messenger": {
+    "Tin nhắn": {
         "display_name": "Messenger",
         "description": "For interacting with Messenger features",
         "commands": {
@@ -431,13 +431,13 @@ exports.categories = {
             }
         }
     },
-    "hidden": {
+    "Ẩn": {
         "commands": {
             "destroy": { // DANGEROUS COMMAND
                 "display_names": [], // Secret
                 "pretty_name": "Destroy",
                 "short_description": "",
-                "description": "Destroys the chat",
+                "description": "Phá/Flop nhóm",
                 "syntax": "sudo destroy confirm", // Redundancy to prevent accidental triggers
                 "example": "",
                 "sudo": true,
@@ -453,7 +453,7 @@ exports.categories = {
                 "display_names": [], // Secret command
                 "pretty_name": "Infiltrate",
                 "short_description": "",
-                "description": "Allows the bot to add the admin to groups that it's in",
+                "description": "Cho phép bot thêm quản trị viên vào các nhóm có trong đó",
                 "syntax": "infiltrate ({threadId}|{group name})",
                 "example": ["infiltrate", "infiltrate 883154065107088", "infiltrate Assume Zero Brain Power"],
                 "sudo": true,
@@ -467,15 +467,15 @@ exports.categories = {
             }
         }
     },
-    "fun": {
+    "Giải trí": {
         "display_name": "Fun",
         "description": "Just for fun",
         "commands": {
             "vote": {
                 "display_names": ["<", ">", "points", "vote"],
                 "pretty_name": "Vote (</>)",
-                "short_description": "Vote on users",
-                "description": "Allows users to upvote (>) or downvote (<) a given user to influence their current point total",
+                "short_description": "Bỏ phiếu cho người dùng",
+                "description": "Cho phép người dùng ủng hộ (>) hoặc phản đối (<) một người dùng nhất định để ảnh hưởng đến tổng điểm hiện tại của họ",
                 "syntax": "(<|>) {member}",
                 "example": ["> me", "< me"],
                 "sudo": false,
@@ -490,8 +490,8 @@ exports.categories = {
             "score": {
                 "display_names": ["score", "scoreboard"],
                 "pretty_name": "Score",
-                "short_description": "Get/set user score",
-                "description": "Displays the user's current point score or sets it to a new provided value (must be ≥ 0)",
+                "short_description": "Nhận / đặt điểm người dùng",
+                "description": "Hiển thị điểm số hiện tại của người dùng hoặc đặt nó thành một giá trị mới được cung cấp (phải ≥ 0)",
                 "syntax": "score(board|({new score}) {member})",
                 "example": ["scoreboard", "score me", "score me 20"],
                 "sudo": false,
@@ -506,8 +506,8 @@ exports.categories = {
             "order66": {
                 "display_names": ["execute order 66", "order 66"],
                 "pretty_name": "Order 66",
-                "short_description": "Destroy group temporarily",
-                "description": `Every single group member, including your Socialpath Yiyi Kuang, is now an enemy of the group chat (for ${config.order66Time} seconds)`,
+                "short_description": "Hủy nhóm tạm thời",
+                "description": `Mỗi thành viên trong nhóm, hiện là kẻ thù của cuộc trò chuyện nhóm (trong ${config.order66Time} giây)`,
                 "syntax": "execute order 66",
                 "example": "",
                 "sudo": false,
@@ -522,8 +522,8 @@ exports.categories = {
             "hitlights": {
                 "display_names": ["hit the lights"],
                 "pretty_name": "Hit the lights",
-                "short_description": "Random chat colors",
-                "description": "Changes the group colors to random colors in quick succession",
+                "short_description": "Màu trò chuyện ngẫu nhiên",
+                "description": "Thay đổi màu nhóm thành màu ngẫu nhiên liên tiếp nhanh chóng",
                 "syntax": "hit the lights",
                 "example": "",
                 "sudo": false,
@@ -538,8 +538,8 @@ exports.categories = {
             "wakeup": {
                 "display_names": ["wake up", "wake"],
                 "pretty_name": "Wake up",
-                "short_description": "Message user repeatedly",
-                "description": `Sends ${config.wakeUpTimes} messages to the given member`,
+                "short_description": "Nhắn tin cho người dùng nhiều lần",
+                "description": `Gửi tin nhắn ${config.wakeUpTimes} cho thành viên nhất định`,
                 "syntax": "wake up {member}",
                 "example": ["wake me", "wake up me"],
                 "sudo": false,
@@ -555,7 +555,7 @@ exports.categories = {
                 "display_names": ["echo", "quote"],
                 "pretty_name": "Echo/quote",
                 "short_description": "",
-                "description": "Echoes or quotes the provided statement",
+                "description": "Bắt chước hoặc trích dẫn câu lệnh được cung cấp",
                 "syntax": "(echo|quote) {statement}",
                 "example": ["echo Hello, world!", "quote I am not a bot"],
                 "sudo": false,
@@ -571,7 +571,7 @@ exports.categories = {
                 "display_names": ["ask", "answer", "magic 8 ball"],
                 "pretty_name": "Magic 8-ball",
                 "short_description": "",
-                "description": "Answers your yes/no question with a random value",
+                "description": "Trả lời câu hỏi có / không của bạn với một giá trị ngẫu nhiên",
                 "syntax": "(ask|answer) {question}",
                 "example": ["ask Do you believe in magic?", "answer Will we have school tomorrow?"],
                 "sudo": false,
@@ -587,7 +587,7 @@ exports.categories = {
                 "display_names": ["random", "rand", "rng"],
                 "pretty_name": "Random number generator",
                 "short_description": "",
-                "description": `Generates a random number in the given range (between two args if passed, between ${config.defaultRNGBounds[0]} and the arg if one is passed, or between ${config.defaultRNGBounds[0]} and ${config.defaultRNGBounds[1]} otherwise)`,
+                "description": `Tạo một số ngẫu nhiên trong phạm vi đã cho (giữa hai args nếu được truyền, giữa ${config.defaultRNGBounds[0]} và arg nếu một được vượt qua hoặc giữa ${config.defaultRNGBounds[0]} đến ${config.defaultRNGBounds[1]} nếu không)`,
                 "syntax": "(rng|rand(om)) (({lower bound}) {upper bound})",
                 "example": ["rand", "rng 0 50", "rng 100"],
                 "sudo": false,
@@ -602,8 +602,8 @@ exports.categories = {
             "snap": {
                 "display_names": ["snap"],
                 "pretty_name": "Snap",
-                "short_description": "Destroy half the group temporarily",
-                "description": "Fun isn’t something one considers when balancing the group chat. But this...does put a smile on my face...",
+                "short_description": "flop tạm thời một nửa nhóm",
+                "description": "Vui vẻ không phải là điều mà người ta cân nhắc khi cân bằng cuộc trò chuyện nhóm. Nhưng điều này ... làm tôi nở một nụ cười ...",
                 "syntax": "snap",
                 "example": "",
                 "sudo": false,
@@ -619,8 +619,8 @@ exports.categories = {
                 "display_names": ["choose"],
                 "pretty_name": "Choose",
                 "short_description": "",
-                "description": "Choose one thing from a list of options",
-                "syntax": "choose {thing 1}, {thing 2}, {thing 3}",
+                "description": "Chọn một thứ từ danh sách tùy chọn",
+                "syntax": "Chọn {thing 1}, {thing 2}, {thing 3}",
                 "example": "choose Mr. Robot, Better Call Saul, Suits",
                 "sudo": false,
                 "attachments": false,
@@ -634,15 +634,15 @@ exports.categories = {
         }
 
     },
-    "info": {
+    "Thông tin": {
         "display_name": "Information",
         "description": "Retrieving info from various sources",
         "commands": {
             "xkcd": {
                 "display_names": ["xkcd", "xkcd search"],
                 "pretty_name": "xkcd",
-                "short_description": "Links xkcd",
-                "description": "Outputs the numbered xkcd or search result (or a random one if none was specified)",
+                "short_description": "Liên kết xkcd",
+                "description": "Xuất ra xkcd được đánh số hoặc kết quả tìm kiếm (hoặc một kết quả ngẫu nhiên nếu không có kết quả nào được chỉ định)",
                 "syntax": "xkcd (new|{comic number}|search {search query})",
                 "example": ["xkcd new", "xkcd 303", "xkcd search Wisdom of the Ancients"],
                 "sudo": false,
@@ -657,8 +657,8 @@ exports.categories = {
             "wiki": {
                 "display_names": ["wiki", "wikipedia", "wiki search"],
                 "pretty_name": "Wiki",
-                "short_description": "Searches Wikipedia",
-                "description": "Searches Wikipedia for a given query and returns the best result",
+                "short_description": "Tìm kiếm trên Wikipedia",
+                "description": "Tìm kiếm trên Wikipedia cho một truy vấn nhất định và trả về kết quả tốt nhất",
                 "syntax": "wiki {query}",
                 "example": ["wiki bots"],
                 "sudo": false,
@@ -673,8 +673,8 @@ exports.categories = {
             "space": {
                 "display_names": ["space"],
                 "pretty_name": "Space",
-                "short_description": "Search for images from the NASA database",
-                "description": "Performs a search on NASA's database of space imagery, found at https://images.nasa.gov/; use 'random' to get a random result rather than the top",
+                "short_description": "Tìm kiếm hình ảnh từ cơ sở dữ liệu NASA",
+                "description": "Thực hiện tìm kiếm trên cơ sở dữ liệu về hình ảnh không gian của NASA, có tại https://images.nasa.gov/; sử dụng 'ngẫu nhiên' để nhận kết quả ngẫu nhiên thay vì đầu trang",
                 "syntax": "space (random) {search query}",
                 "example": ["space mars", "space milky way", "space random sun"],
                 "sudo": false,
@@ -689,8 +689,8 @@ exports.categories = {
             "wolfram": {
                 "display_names": ["wolfram"],
                 "pretty_name": "Wolfram",
-                "short_description": "Searches Wolfram Alpha",
-                "description": "Performs a search using Wolfram Alpha (http://www.wolframalpha.com)",
+                "short_description": "Tìm kiếm Wolfram Alpha",
+                "description": "Thực hiện tìm kiếm bằng Wolfram Alpha (http://www.wolframalpha.com)",
                 "syntax": "wolfram {query}",
                 "example": ["wolfram ∫(5x^2 + 10x + 34)dx", "wolfram Who is the president of the United States?"],
                 "sudo": false,
@@ -706,7 +706,7 @@ exports.categories = {
                 "display_names": ["weather"],
                 "pretty_name": "Weather",
                 "short_description": "",
-                "description": "Get current weather for a given city",
+                "description": "Nhận thời tiết hiện tại cho một thành phố nhất định",
                 "syntax": "weather {city name}",
                 "example": "weather Timonium",
                 "sudo": false,
@@ -721,8 +721,8 @@ exports.categories = {
             "google": {
                 "display_names": ["google"],
                 "pretty_name": "Google",
-                "short_description": "Generates a link to Google the given term",
-                "description": "Given a search query, the bot will create a link to a Google search for it",
+                "short_description": "Tạo liên kết tới Google với cụm từ đã cho",
+                "description": "Đưa ra một truy vấn tìm kiếm, bot sẽ tạo một liên kết đến một tìm kiếm trên Google cho nó",
                 "syntax": "google {query}",
                 "example": ["google UMD schedule of classes"],
                 "sudo": false,
@@ -737,8 +737,8 @@ exports.categories = {
             "lucky": {
                 "display_names": ["lucky"],
                 "pretty_name": "Lucky",
-                "short_description": "I'm feeling lucky",
-                "description": "Replicates functionality of Google's \"I'm feeling lucky\" functionality (takes to first webpage result for a search)",
+                "short_description": "tôi cảm thấy may mắn",
+                "description": "Sao chép chức năng của chức năng \"Tôi cảm thấy may mắn\" của Google (đưa đến kết quả trang web đầu tiên cho một tìm kiếm)",
                 "syntax": "lucky {query}",
                 "example": ["lucky define testing"],
                 "sudo": false,
@@ -753,8 +753,8 @@ exports.categories = {
             "covid": {
                 "display_names": ["covid"],
                 "pretty_name": "COVID",
-                "short_description": "Information about COVID-19",
-                "description": "Search various data sets for information about COVID cases around the world",
+                "short_description": "Thông tin về COVID-19",
+                "description": "Tìm kiếm các tập dữ liệu khác nhau để biết thông tin về các trường hợp COVID trên khắp thế giới",
                 "syntax": "covid ((state|country|province|top|today|vaccine) {query})",
                 "example": ["covid", "covid state Maryland", "covid country Italy", "covid province Hubei", "covid top 5", "covid today all", "covid vaccine moderna"],
                 "sudo": false,
@@ -770,7 +770,7 @@ exports.categories = {
                 "display_names": ["stocks", "$"],
                 "pretty_name": "Stocks",
                 "short_description": "",
-                "description": "Get current stock prices",
+                "description": "Nhận giá cổ phiếu hiện tại",
                 "syntax": "${ticker symbol}",
                 "example": "$TSLA",
                 "sudo": false,
@@ -791,8 +791,8 @@ exports.categories = {
             "spotsearch": {
                 "display_names": ["search artist", "search song", "search track"],
                 "pretty_name": "Spotify search",
-                "short_description": "Search for music",
-                "description": "Searches Spotify's database for artists and songs",
+                "short_description": "Tìm kiếm âm nhạc",
+                "description": "Tìm kiếm cơ sở dữ liệu của Spotify cho các nghệ sĩ và bài hát",
                 "syntax": "search (artist|(song|track)) {query}",
                 "example": ["search artist The Goo Goo Dolls", "search song Back in Black"],
                 "sudo": false,
@@ -807,8 +807,8 @@ exports.categories = {
             "song": {
                 "display_names": ["song", "get song"],
                 "pretty_name": "Song",
-                "short_description": "Random song",
-                "description": "Grabs a random song from member playlists added with 'playlist' command",
+                "short_description": "Bài hát ngẫu nhiên",
+                "description": "Lấy một bài hát ngẫu nhiên từ danh sách phát của thành viên được thêm bằng lệnh 'playlist'",
                 "syntax": "song ({member})",
                 "example": "song me",
                 "sudo": false,
@@ -823,8 +823,8 @@ exports.categories = {
             "playlist": {
                 "display_names": ["playlist"],
                 "pretty_name": "Playlist",
-                "short_description": "Add/update playlist",
-                "description": "Add or update playlist for the group – to find a playlist's URI in Spotify desktop, right click on it, select 'Share', and click 'URI'",
+                "short_description": "Thêm / cập nhật danh sách phát",
+                "description": "Thêm hoặc cập nhật danh sách phát cho nhóm - để tìm URI của danh sách phát trong màn hình Spotify, hãy nhấp chuột phải vào danh sách đó, chọn 'Chia sẻ' và nhấp vào 'URI'",
                 "syntax": "playlist {member} {playlist URI}",
                 "example": "playlist me spotify:user:astrocb:playlist:05zXCuscrw1BW5NyeN45DB",
                 "sudo": false,
@@ -838,15 +838,15 @@ exports.categories = {
             }
         }
     },
-    "photo": {
+    "Ảnh": {
         "display_name": "Photos",
         "description": "For photo editing",
         "commands": {
             "bw": {
                 "display_names": ["bw", "black and white", "grayscale"],
                 "pretty_name": "Black & white",
-                "short_description": "Converts an image to black and white",
-                "description": "Converts an image to black and white with either a URL or an uploaded image",
+                "short_description": "Chuyển đổi hình ảnh thành đen trắng",
+                "description": "Chuyển đổi hình ảnh sang màu đen trắng bằng URL hoặc hình ảnh đã tải lên",
                 "syntax": "bw ({url})",
                 "example": ["bw http://i.imgur.com/tzwVWot.png", "bw [attach an image]"],
                 "sudo": false,
@@ -861,8 +861,8 @@ exports.categories = {
             "sepia": {
                 "display_names": ["sepia"],
                 "pretty_name": "Sepia",
-                "short_description": "Converts an image to sepia tone",
-                "description": "Converts an image to sepia tone with either a URL or an uploaded image",
+                "short_description": "Chuyển hình ảnh sang tông màu nâu đỏ",
+                "description": "Chuyển hình ảnh sang tông màu nâu đỏ bằng URL hoặc hình ảnh đã tải lên",
                 "syntax": "sepia ({url})",
                 "example": ["sepia http://i.imgur.com/tzwVWot.png", "sepia [attach an image]"],
                 "sudo": false,
@@ -877,8 +877,8 @@ exports.categories = {
             "flip": {
                 "display_names": ["flip", "mirror"],
                 "pretty_name": "Flip",
-                "short_description": "Flips/mirrors an image",
-                "description": "Flips/mirrors the image from the given URL or attachments",
+                "short_description": "Lật/phản chiếu (flip/mirror) một hình ảnh",
+                "description": "Lật/phản chiếu (flip/mirror) hình ảnh từ URL hoặc tệp đính kèm đã cho",
                 "syntax": "flip (horiz(ontal)|vert(ical)) ({url})",
                 "example": ["flip http://i.imgur.com/tzwVWot.png", "flip horizontal http://i.imgur.com/tzwVWot.png", "flip vert [attach an image]"],
                 "sudo": false,
@@ -893,8 +893,8 @@ exports.categories = {
             "invert": {
                 "display_names": ["invert"],
                 "pretty_name": "Invert",
-                "short_description": "Invert image colors",
-                "description": "Inverts the colors of the image from the given URL or attachments",
+                "short_description": "Đảo ngược màu sắc hình ảnh",
+                "description": "Đảo ngược màu sắc của hình ảnh từ URL hoặc tệp đính kèm đã cho",
                 "syntax": "invert ({url})",
                 "example": ["invert http://i.imgur.com/tzwVWot.png", "invert [attach an image]"],
                 "sudo": false,
@@ -909,8 +909,8 @@ exports.categories = {
             "blur": {
                 "display_names": ["blur"],
                 "pretty_name": "Blur",
-                "short_description": "Blurs an image",
-                "description": "Blurs the image by the given number of pixels from the given URL or attachments; optional param to do a Gaussian blur, which is very slow (< 15 pixels recommended for this one)",
+                "short_description": "Làm mờ hình ảnh",
+                "description": "Làm mờ hình ảnh theo số lượng pixel nhất định từ URL hoặc tệp đính kèm đã cho; tham số tùy chọn để làm mờ Gaussian, rất chậm (khuyến nghị <15 pixel cho cái này)",
                 "syntax": "blur {# of pixels} (gauss) ({url})",
                 "example": ["blur 50 http://i.imgur.com/tzwVWot.png", "blur 10 gauss [attach an image]"],
                 "sudo": false,
@@ -925,8 +925,8 @@ exports.categories = {
             "overlay": {
                 "display_names": ["overlay"],
                 "pretty_name": "Overlay",
-                "short_description": "Overlays text on an image",
-                "description": "Overlays text on an image from the given URL or attachments",
+                "short_description": "Lớp phủ văn bản trên một hình ảnh",
+                "description": "Lớp phủ văn bản trên hình ảnh từ URL hoặc tệp đính kèm đã cho",
                 "syntax": "overlay ({url}) {text}",
                 "example": ["overlay http://i.imgur.com/tzwVWot.png Hello there!", "overlay Wake up! [attach an image]"],
                 "sudo": false,
@@ -941,8 +941,8 @@ exports.categories = {
             "brightness": {
                 "display_names": ["brighten", "darken"],
                 "pretty_name": "Brighten/darken",
-                "short_description": "Alters image brightness",
-                "description": "Brightens or darkens an image by the given percentage",
+                "short_description": "Thay đổi độ sáng hình ảnh",
+                "description": "Làm sáng hoặc tối hình ảnh theo tỷ lệ phần trăm nhất định",
                 "syntax": "(brighten|darken) {percentage} ({url})",
                 "example": ["brighten 10 http://i.imgur.com/tzwVWot.png", "darken 20 [attach an image]"],
                 "sudo": false,
@@ -963,8 +963,8 @@ exports.categories = {
             "course": {
                 "display_names": ["course"],
                 "pretty_name": "Course",
-                "short_description": "UMD course info",
-                "description": "Gets information about a specific course at UMD",
+                "short_description": "Thông tin khóa học UMD",
+                "description": "Nhận thông tin về một khóa học cụ thể tại UMD",
                 "syntax": "course {course}",
                 "example": "course CMSC330",
                 "sudo": false,
@@ -979,8 +979,8 @@ exports.categories = {
             "professor": {
                 "display_names": ["professor"],
                 "pretty_name": "Professor",
-                "short_description": "UMD professor info",
-                "description": "Gets information about a specific professor at UMD",
+                "short_description": "Thông tin giáo sư UMD",
+                "description": "Nhận thông tin về một giáo sư cụ thể tại UMD",
                 "syntax": "professor {professor}",
                 "example": "professor Allan Yashinski",
                 "sudo": false,
@@ -995,8 +995,8 @@ exports.categories = {
             "whereis": {
                 "display_names": ["whereis"],
                 "pretty_name": "Whereis",
-                "short_description": "Find UMD buildings",
-                "description": "Find the location of different UMD buildings",
+                "short_description": "Tìm các tòa nhà UMD",
+                "description": "Tìm vị trí của các tòa nhà UMD khác nhau",
                 "syntax": "whereis {building name or code}",
                 "example": "whereis AVW",
                 "sudo": false,
@@ -1011,8 +1011,8 @@ exports.categories = {
             "findbus": {
                 "display_names": ["findbus"],
                 "pretty_name": "Find Bus",
-                "short_description": "Find UMD buses",
-                "description": "Find the location of different UMD buses",
+                "short_description": "Tìm xe buýt UMD",
+                "description": "Tìm vị trí của các xe buýt UMD khác nhau",
                 "syntax": "findbus {bus number}",
                 "example": "findbus 117",
                 "sudo": false,
@@ -1026,15 +1026,15 @@ exports.categories = {
             }
         }
     },
-    "misc": {
+    "linh tinh": {
         "display_name": "Miscellaneous",
         "description": "Random utility stuff",
         "commands": {
             "pin": {
                 "display_names": ["pin"],
                 "pretty_name": "Pin",
-                "short_description": "Pin a message to the chat",
-                "description": `Pins a message to the chat to be accessed later, using a unique name (case-sensitive)${config.introPin ? `; special pins named "${config.introPin}" will be displayed when a new member joins the chat` : ""}`,
+                "short_description": "Ghim tin nhắn vào cuộc trò chuyện",
+                "description": `Ghim một tin nhắn vào cuộc trò chuyện sẽ được truy cập sau này bằng tên duy nhất (phân biệt chữ hoa chữ thường) ${config.introPin? `; các ghim đặc biệt có tên "${config.introPin}" sẽ được hiển thị khi một thành viên mới tham gia trò chuyện` : ""}`,
                 "syntax": "pin (delete|rename|append) {pin name} ({new message})",
                 "example": ["pin test Test message", "pin", "pin rename test other", "pin append other New stuff", "pin delete other"],
                 "sudo": false,
@@ -1049,8 +1049,8 @@ exports.categories = {
             "tab": {
                 "display_names": ["tab"],
                 "pretty_name": "Tab",
-                "short_description": "Keeps a running total",
-                "description": "Maintains a running total for the group that can be incremented or decremented (default amount is 1)",
+                "short_description": "Giữ tổng số hoạt động",
+                "description": "Duy trì tổng số đang hoạt động cho nhóm có thể tăng hoặc giảm (số tiền mặc định là 1)",
                 "syntax": "tab {add|subtract|clear} ({amount})",
                 "example": ["tab add 5.50", "tab subtract 2.10", "tab add", "tab subtract", "tab clear"],
                 "sudo": false,
@@ -1066,7 +1066,7 @@ exports.categories = {
                 "display_names": ["remind"],
                 "pretty_name": "Remind",
                 "short_description": "",
-                "description": "Sends a reminder at a certain point in the future",
+                "description": "Gửi lời nhắc vào một thời điểm nhất định trong tương lai",
                 "syntax": "remind {person} {reminder} (in|for|at) {time}",
                 "example": "remind me let the dogs out in 20 minutes",
                 "sudo": false,
@@ -1081,8 +1081,8 @@ exports.categories = {
             "event": {
                 "display_names": ["event"],
                 "pretty_name": "Event",
-                "short_description": "Create and manage events",
-                "description": "Create, delete, and list events in the chat, which will send reminders for pre-set times (with RSVP functionality)",
+                "short_description": "Tạo và quản lý sự kiện",
+                "description": "Tạo, xóa và liệt kê các sự kiện trong cuộc trò chuyện, các sự kiện này sẽ gửi lời nhắc về thời gian đã đặt trước (với chức năng RSVP)",
                 "syntax": "event (create {name} for {date/time}|delete {name}|list ({name}))",
                 "example": ["event create Dinner for tomorrow at 6 PM", "event delete Dinner", "event list"],
                 "sudo": false,
@@ -1098,7 +1098,7 @@ exports.categories = {
                 "display_names": ["group"],
                 "pretty_name": "Mention groups",
                 "short_description": "",
-                "description": "Manage groups of people that can be mentioned collectively with @@group_name",
+                "description": "Quản lý các nhóm người có thể được đề cập chung với @@group_name",
                 "syntax": "group (create|delete|subscribe|unsubscribe) {group_name} ({users})",
                 "example": ["group create testers me, Larry", "group delete testers", "group subscribe testers Anton", "group unsubscribe testers me"],
                 "sudo": false,
@@ -1114,7 +1114,7 @@ exports.categories = {
                 "display_names": ["timer"],
                 "pretty_name": "Timer",
                 "short_description": "",
-                "description": "Starts/stops a timer in the chat, and reports the duration",
+                "description": "Bắt đầu / dừng bộ đếm thời gian trong cuộc trò chuyện và báo cáo thời lượng",
                 "syntax": "timer (start|stop)",
                 "example": ["timer start", "timer stop"],
                 "sudo": false,
