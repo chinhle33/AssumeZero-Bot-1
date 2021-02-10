@@ -2,7 +2,7 @@
   "name": "assumezero-bot",
   "version": "2.0.0",
   "description": "A group chat bot that performs a variety of functions.",
-  "main": "main.js",
+  "main": "src/main.js",
   "engines": {
     "node": "12.18.2"
   },

@@ -1,27 +1,27 @@
 // The trigger word that precedes most commands and will activate the bot
-exports.trigger = "physics";
+exports.trigger = "hey";
 
 // Bot owner information
 exports.owner = {
     "names": {
-        "short": "Cameron",
-        "long": "Cameron Bernhardt"
+        "short": "Huy Bảo",
+        "long": "Mai Huy Bảo"
     },
-    "id": "100007016509302" // ID of bot owner (for secure commands, reports, and alerts)
+    "id": "10004894291189" // ID of bot owner (for secure commands, reports, and alerts)
 };
 
 // Bot information
 exports.bot = {
     "names": {
-        "short": "AØBøt", // Will be used as 'nickname' in chat (remove if same as account name)
-        "long": "AssumeZero Bot" // Name displayed in profile on bot's Facebook account
+        "short": "BerBot", // Will be used as 'nickname' in chat (remove if same as account name)
+        "long": "BerBot" // Name displayed in profile on bot's Facebook account
     },
     "id": "100041587845629" // Bot's ID (for security purposes in commands)
 };
 
 // Location of the bot repo if automatic GitHub webhook deploys are used
 // (see server.js for details)
-exports.repoPath = "/home/cameron/AssumeZero-Bot/";
+exports.repoPath = "C:/Users/Administrator/Documents/GitHub/AssumeZero-Bot-VietNamese";
 
 // Determines whether bot grammar is "contextless"
 // i.e. whether the command must match from the start of the string or anywhere within it
@@ -30,7 +30,7 @@ exports.repoPath = "/home/cameron/AssumeZero-Bot/";
 exports.contextless = false;
 
 // Default group name when no other information is available
-exports.defaultTitle = "Unnamed chat";
+exports.defaultTitle = "Group Chat Have BerBot by Mai Huy Bảo";
 
 // Heroku settings (might need to tweak some things if using another host)
 // App name
@@ -50,7 +50,7 @@ exports.localSleepTime = 3;
 exports.localWakeTime = 9;
 
 // Your desired timezone for displaying times
-exports.timeZone = "America/New_York";
+exports.timeZone = "Asia/Ho_Chi_Minh";
 
 // Time in seconds to ban users for Order 66
 exports.order66Time = 15;

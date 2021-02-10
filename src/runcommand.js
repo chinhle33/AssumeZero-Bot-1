@@ -51,7 +51,7 @@ const funcs = {
                         }
                     }
                 }
-                mess += `Contact ${config.owner.names.long} with any questions, or use "${config.trigger} bug" to report bugs directly.\n\nTip: for more detailed descriptions, use "${config.trigger} help {command}"`;
+                mess += `Liên hệ ${config.owner.names.long} với bất kì câu hỏi nào, hoặc sử dụng "${config.trigger} bug" để báo cáo lỗi.\n\nTip: để biết thêm thông tin đầy đủ của các lệnh, hãy sử dụng "${config.trigger} help {command}"`;
                 utils.sendMessage(mess, threadId);
             } else if (entry) {
                 const info = entry.entry;
@@ -67,22 +67,22 @@ const funcs = {
                     example.body = `${config.trigger} ${info.example}`;
                 }
 
-                const helpMsg = `Entry for command "${info.pretty_name}":\n${info.description}\n\nSyntax: ${config.trigger} ${info.syntax}${example.header ? `\n\n${example.header}${example.body}` : ""}`;
-                const addenda = `${info.attachments ? "\n\n(This command accepts attachments)" : ""}${info.sudo ? "\n\n(This command requires owner privileges)" : ""}${info.experimental ? "\n\n(This command is experimental)" : ""}`;
+                const helpMsg = `Nhập lệnh "${info.pretty_name}":\n${info.description}\n\nCú pháp: ${config.trigger} ${info.syntax}${example.header ? `\n\n${example.header}${example.body}` : ""}`;
+                const addenda = `${info.attachments ? "\n\n(Lệnh này chấp nhận tệp đính kèm)" : ""}${info.sudo ? "\n\n(Lệnh này yêu cầu đặc quyền của chủ sở hữu)" : ""}${info.experimental ? "\n\n(Lệnh này là thử nghiệm)" : ""}`;
                 utils.getStats(entry.key, false, (err, stats) => {
                     if (err) { // Couldn't retrieve stats; just show help message
                         utils.sendMessage(`${helpMsg}${addenda}`, threadId);
                     } else {
                         const perc = (((stats.count * 1.0) / stats.total) * 100) || 0;
-                        utils.sendMessage(`${helpMsg}\n\nThis command has been used ${stats.count} ${stats.count == 1 ? "time" : "times"}, representing ${perc.toFixed(3)}% of all invocations.${addenda}`, threadId);
+                        utils.sendMessage(`${helpMsg}\n\nLệnh này đã được sử dụng ${stats.count} ${stats.count == 1 ? "time" : "times"}, đại diện ${perc.toFixed(3)}% trong số tất cả các lời kêu gọi.${addenda}`, threadId);
                     }
                 });
             } else {
-                utils.sendError(`Help entry not found for "${input}"`, threadId);
+                utils.sendError(`Mục trợ giúp không tìm thấy cho "${input}"`, threadId);
             }
         } else {
             // No command passed; give overview of categories
-            let mess = `Quick Help for ${config.bot.names.short || config.bot.names.long}\n\nSelect a category from below with "${config.trigger} help {category}"\n\n`;
+            let mess = `Trợ giúp nhanh cho ${config.bot.names.short || config.bot.names.long}\n\nChọn một danh mục từ bên dưới với "${config.trigger} help {category}"\n\n`;
             for (let c in cats) {
                 if (cats.hasOwnProperty(c)) {
                     const cat = cats[c];

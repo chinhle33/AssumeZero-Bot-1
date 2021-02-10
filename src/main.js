@@ -39,7 +39,7 @@ if (require.main === module) { // Called directly; login immediately
 // Bot setup
 function main(err, api) {
     if (err) return console.error(err);
-    console.info(`Successfully logged in to user account ${api.getCurrentUserID()}.`);
+    console.info(`Đăng nhập  ${api.getCurrentUserID()}.`);
     gapi = api; // Initialize global API variable
     utils.setglobals(api, mem, credentials); // Initialize in utils module as well
 
