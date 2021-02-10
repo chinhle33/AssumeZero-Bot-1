@@ -39,7 +39,7 @@ if (require.main === module) { // Called directly; login immediately
 // Bot setup
 function main(err, api) {
     if (err) return console.error(err);
-    console.info(`Đã đăng nhập thành công vào ${api.getCurrentUserID()}.`);
+    console.info(`Successfully logged in to user account ${api.getCurrentUserID()}.`);
     gapi = api; // Initialize global API variable
     utils.setglobals(api, mem, credentials); // Initialize in utils module as well
 
@@ -74,7 +74,7 @@ function handleMessage(err, message, external = false, api = gapi) { // New mess
         // Load existing group data
         utils.getGroupInfo(message.threadID, (err, info) => {
             if (err || !info) {
-                console.log(`Lỗi lấy dữ liệu từ group ${message.threadID}: ${err}`);
+                console.log(`Error retrieving group data for ${message.threadID}: ${err}`);
             } else {
                 // Welcome new members
                 if (message.logMessageType && message.logMessageType == "log:subscribe") {
